@@ -7,10 +7,16 @@ class Author(models.Model):
     age = models.IntegerField()
     email = models.EmailField(max_length=250,unique=True)
 
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     title = models.CharField(max_length=250)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(Author,on_delete=models.CASCADE,null=True,blank=True, related_name='books')
+
+    def __str__(self):
+        return f'Post title is {self.title} and created by {self.author.name}'
 
