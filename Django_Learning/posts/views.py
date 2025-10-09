@@ -8,7 +8,7 @@ def home(request):
     context = {
         'posts':posts_list
     }
-    return render(request,context)
+    return render(request,'home.html',context)
 
 
 def post_detail(request,pk):
@@ -16,4 +16,4 @@ def post_detail(request,pk):
     context = {
         'post':post
     }
-    return render(request,context)
+    return render(request,'post_detail.html',context)
